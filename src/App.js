@@ -492,7 +492,7 @@ export default class App extends Component {
 
     super(props);
 
-    this.state = { items: [], changer: new NoBallChange(), changer2: new NoBallChange(), changerItems: [
+    this.state = { items: [], numNewBalls: 1, changer: new NoBallChange(), changer2: new NoBallChange(), changerItems: [
 
       {changer: new NoBallChange(), id:0}, {changer: new RainbowBallChange(), id:1},
 
@@ -508,6 +508,7 @@ export default class App extends Component {
 
     this.handleClear = this.handleClear.bind(this);
 
+    this.handleSliderChange = this.handleSliderChange(this);
   }
 
  
@@ -524,6 +525,8 @@ export default class App extends Component {
 
           <BallList items={this.state.items}/>
 
+
+          <input type="range" min="1" max="30" value={this.state.numNewBalls} onChange={this.handleSliderChange} />
  
 
           <button id="addBallButton" onClick={this.handleSubmit}>
@@ -616,6 +619,10 @@ export default class App extends Component {
 
   }
 
+  handleSliderChange(e) {
+    this.setState({numNewBalls: e.target.value});
+  }
+
  
 
   handleSubmit(e) {
@@ -626,7 +633,7 @@ export default class App extends Component {
 
     const newItemList = [];
 
-    const numNewBalls = 20;
+    const numNewBalls = this.state.numNewBalls;
 
  
 
