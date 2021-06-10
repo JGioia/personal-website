@@ -626,7 +626,7 @@ export default class App extends Component {
 
     const newItemList = [];
 
-    const numNewBalls = 1;
+    const numNewBalls = 20;
 
  
 
