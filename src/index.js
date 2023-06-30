@@ -4,6 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// const cors = require('cors');
+// use(cors({
+//     origin: 'https://www.section.io'
+// }));
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

@@ -1,0 +1,15 @@
+.hover-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.hover-shadow:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.hover-background:hover {
+  background-color: rgba(.3, .3, .3, .2);
+}
+.hover-background1 {
+  background-color: rgba(.3, .3, .3, .1);
+}
+.hover-background1:hover {
+  background-color: rgba(.3, .3, .3, .2);
+}
