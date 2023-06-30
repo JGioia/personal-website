@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Card from "../shared/Card";
 import TextInput from "../shared/TextInput";
 import Text from '../shared/Text';
@@ -7,14 +7,15 @@ import Button from "../shared/Button";
 export default function ListColumn(props) {
   const selectedIndex = props.selectedIndex;
   const setListSize = props.setListSize;
+  const index = props.index;
 
   const [list, setList] = useState([""]);
 
   return (
     <Card>
-      <div style={{marginBottom: 10}}>
+      <div style={{marginBottom: 15}}>
         <Text bold>
-          List
+          List {index + 1}
         </Text>
       </div>
       <div>
@@ -22,8 +23,8 @@ export default function ListColumn(props) {
           <div 
             key={index} 
             style={index === selectedIndex ? 
-              {marginBottom: 5, backgroundColor: "yellow"} : 
-              {marginBottom: 5}}>
+              {marginBottom: 10, backgroundColor: "yellow"} : 
+              {marginBottom: 10}}>
             <TextInput 
               fullWidth
               value={text}
@@ -37,8 +38,8 @@ export default function ListColumn(props) {
         <Button 
           fullWidth 
           onClick={() => {
+            setListSize(list.length + 1);
             setList(list => [...list, ""]);
-            setListSize(list.length);
           }}>
           <Text>
             Add Item
