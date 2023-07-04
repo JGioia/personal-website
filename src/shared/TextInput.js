@@ -7,6 +7,7 @@ export default function TextInput(props) {
   const autocomplete = props.autocomplete ?? false;
   const label = props.label ?? "";
   const fullWidth = props.fullWidth ?? false;
+  const disabled = props.disabled ?? false;
 
   return (
     <div>
@@ -16,7 +17,8 @@ export default function TextInput(props) {
         size="small"
         autoComplete={autocomplete ? "on" : "off"}
         label={label}
-        fullWidth={fullWidth}/>
+        fullWidth={fullWidth}
+        disabled={disabled}/>
     </div>
   );
 }

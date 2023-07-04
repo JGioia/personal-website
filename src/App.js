@@ -8,6 +8,7 @@ import {
 import BallApp from './balls/BallApp';
 import QRApp from './qr/QRApp';
 import AutoSelectApp from "./autoselect/AutoSelectApp";
+import GameApp from "./game/GameApp";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <Routes>
         <Route path="/qr" element={<QRApp/>} />
         <Route path="/autoselect" element={<AutoSelectApp/>} />
+        <Route path="/game" element={<GameApp />} />
         <Route path="*" element={<BallApp/>} />
       </Routes>
     </Router>

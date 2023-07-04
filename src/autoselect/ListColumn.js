@@ -36,7 +36,6 @@ export default function ListColumn(props) {
           </div>
         ))}
         <Button 
-          fullWidth 
           onClick={() => {
             setListSize(list.length + 1);
             setList(list => [...list, ""]);
