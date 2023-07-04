@@ -74,6 +74,7 @@ export default function GameApp() {
               <Typography>Lives: {lives}</Typography>
 
               {guessMode && (<>
+                <Typography>Your goal is to correctly order 10 events in history.</Typography>
                 <Typography>Guess where the following event happened in relation to the events below:</Typography>
                 <Typography>{nextCard.description}</Typography>
               </>)}
