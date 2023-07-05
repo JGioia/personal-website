@@ -14,7 +14,7 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/qr" element={<QRApp/>} />
+        {/* <Route path="/qr" element={<QRApp/>} /> */}
         <Route path="/autoselect" element={<AutoSelectApp/>} />
         <Route path="/game" element={<GameApp />} />
         <Route path="*" element={<BallApp/>} />
