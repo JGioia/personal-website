@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Box, Typography, Button } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import GameCard from './GameCard';
 import GameCardButton from "./GameCardButton";
 import { createDeck, takeCard } from './gameUtils';
+import Text from '../shared/Text';
+import Button from '../shared/Button';
+import { useWindowSize } from '../shared/utils';
 
 const useStyles = makeStyles({
   boxItem: {
@@ -21,6 +24,7 @@ const useStyles = makeStyles({
 
 export default function GameApp() {
   const classes = useStyles();
+  const size = useWindowSize();
   const [isLoading, setIsLoading] = useState(true);
   const [remainingCards, setRemainingCards] = useState();
   const [playedCards, setPlayedCards] = useState();
@@ -66,26 +70,32 @@ export default function GameApp() {
   }, []);
 
   return (
-    <div className="GameApp">
+    <div style={{minHeight: "100vh", backgroundColor: "#957588"}}>
       {!isLoading && <>
         {lives > 0 && playedCards.length < 10 &&
           <>
-            <Box className={classes.box}>
-              <Typography>Lives: {lives}</Typography>
+            <div style={{padding: 20, display: "flex", alignItems: "center", flexDirection: "column", rowGap: 10}}>
+              <Text white bold large>TimeLine Game!</Text>
+              <Text white bold>Lives: {lives}</Text>
 
               {guessMode && (<>
-                <Typography>Your goal is to correctly order 10 events in history.</Typography>
-                <Typography>Guess where the following event happened in relation to the events below:</Typography>
-                <Typography>{nextCard.description}</Typography>
+                <Text white>Your goal is to correctly order 10 events in history.</Text>
+                <Text white>Guess where the following event happened in relation to the events below:</Text>
+                <Text white bold>{nextCard.description}</Text>
               </>)}
 
-              {showSuccess && <Typography>Correct!</Typography>}
-              {showFail && <Typography>Incorrect! This event happened in {nextCard.year}</Typography>}
+              {showSuccess && <Text white>Correct!</Text>}
+              {showFail && <Text white>Incorrect! This event happened in {nextCard.year}</Text>}
 
-              {!guessMode && <Button onClick={onDrawCard}>Draw Card</Button>}
-            </Box>
+              {!guessMode && <Button onClick={onDrawCard}><Text white bold>Draw Card</Text></Button>}
+            </div>
             
-            <Box display="flex" flexWrap="wrap" justifyContent="center" className={classes.box}>
+            <div style={{display: "flex", 
+              flexWrap: "wrap", 
+              justifyContent: "center", 
+              gap: 10, 
+              margin: 20,
+              flexDirection: size.width > 1000 ? "row": "column"}}>
               {playedCards.map((card, index) => (
                 <>
                   {guessMode &&
@@ -103,7 +113,7 @@ export default function GameApp() {
                   playedCards={playedCards} key={"Button" + playedCards.length}
                   onSuccessfulGuess={onSuccessfulGuess}/>
               }
-            </Box>
+            </div>
           </>
         }
 

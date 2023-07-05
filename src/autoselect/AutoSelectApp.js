@@ -4,8 +4,6 @@ import Button from '../shared/Button';
 import Text from '../shared/Text';
 import ListColumn from './ListColumn';
 import TextInput from '../shared/TextInput';
-import UploadIcon from '@mui/icons-material/Upload';
-import DownloadIcon from '@mui/icons-material/Download';
 
 export default function AutoSelectApp(props) {
   const [listSizes, setListSizes] = useState([1]);

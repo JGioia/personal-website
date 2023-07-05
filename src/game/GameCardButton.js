@@ -1,6 +1,8 @@
 import React from 'react';
-import { Button } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import Text from '../shared/Text';
+import Button from '../shared/Button';
+
 export default function GameCardButton(props) {
     const { playedCards, index, nextCard, onSuccessfulGuess, 
         onUnsuccessfulGuess } = props;
@@ -17,7 +19,9 @@ export default function GameCardButton(props) {
 
     return (
         <Button onClick={handleButtonClick}>
-            Add Here
+            <Text white bold>
+                Add Here
+            </Text>
         </Button>
     );
 }
