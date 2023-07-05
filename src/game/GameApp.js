@@ -94,7 +94,7 @@ export default function GameApp() {
               flexWrap: "wrap", 
               justifyContent: "center", 
               gap: 10, 
-              margin: 20,
+              padding: 20,
               flexDirection: size.width > 1000 ? "row": "column"}}>
               {playedCards.map((card, index) => (
                 <>
