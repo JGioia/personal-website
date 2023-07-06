@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core';
 import GameCard from './GameCard';
 import GameCardButton from "./GameCardButton";
 import { createDeck, takeCard } from './gameUtils';
@@ -8,22 +7,12 @@ import Text from '../shared/Text';
 import Button from '../shared/Button';
 import { useWindowSize } from '../shared/utils';
 
-const useStyles = makeStyles({
-  boxItem: {
-    margin: 10
-  },
-  box: {
-    margin: 10
-  }
-});
-
 // TODO:
 // Features: Add more cards
 // Aesthetics: everything lol
 // Bugs: Bug selecting incorrect last spot
 
 export default function GameApp() {
-  const classes = useStyles();
   const size = useWindowSize();
   const [isLoading, setIsLoading] = useState(true);
   const [remainingCards, setRemainingCards] = useState();
@@ -67,6 +56,7 @@ export default function GameApp() {
       setPlayedCards([firstCard]);
       setIsLoading(false);
     });
+    document.title = "Timeline";
   }, []);
 
   return (
@@ -99,12 +89,12 @@ export default function GameApp() {
               {playedCards.map((card, index) => (
                 <>
                   {guessMode &&
-                    <GameCardButton className={classes.boxItem} 
+                    <GameCardButton
                       index={index} key={"Button" + index} 
                       nextCard={nextCard} playedCards={playedCards} 
                       onSuccessfulGuess={onSuccessfulGuess} onUnsuccessfulGuess={onUnsuccessfulGuess}/>
                   }
-                  <GameCard className={classes.boxItem} year={card.year} 
+                  <GameCard year={card.year} 
                     description={card.description} key={index} />
                 </>
               ))}
@@ -118,11 +108,11 @@ export default function GameApp() {
         }
 
         {lives <= 0 &&
-          <Typography>You Lost!</Typography>
+          <img src="you_lost.gif" style={{height: "100vh", width:"100vw"}}/>
         }
 
         {playedCards.length >= 10 &&
-          <Typography>You Win!</Typography>
+          <Text>You Win!</Text>
         }
       </>}
     </div>
