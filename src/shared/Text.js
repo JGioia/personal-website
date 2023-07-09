@@ -17,7 +17,8 @@ export default function Text(props) {
       display: "flex",
       alignItems: "center",
       textAlign: centerText ? "center" : "",
-      textDecoration: strikethrough ? "line-through" : ""
+      textDecoration: strikethrough ? "line-through" : "",
+      fontFamily: "Raleway"
     }}>
       <div style={{backgroundColor: highlighted ? "#FFE873" : ""}}>
         {children}
