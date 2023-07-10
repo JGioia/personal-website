@@ -10,6 +10,7 @@ import BallApp from './balls/BallApp';
 import AutoSelectApp from "./autoselect/AutoSelectApp";
 import GameApp from "./game/GameApp";
 import AboutApp from "./about/AboutApp";
+import TagApp from "./tag/TagApp";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/autoselect" element={<AutoSelectApp/>} />
         <Route path="/game" element={<GameApp />} />
         <Route path="/about" element={<AboutApp />} />
+        <Route path="/tag" element={<TagApp />} />
         <Route path="*" element={<BallApp/>} />
       </Routes>
     </Router>

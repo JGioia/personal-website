@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import GameCard from './GameCard';
 import GameCardButton from "./GameCardButton";
 import { createDeck, takeCard } from './gameUtils';
@@ -108,7 +107,7 @@ export default function GameApp() {
         }
 
         {lives <= 0 &&
-          <img src="you_lost.gif" style={{height: "100vh", width:"100vw"}}/>
+          <img alt="you lose" src="you_lost.gif" style={{height: "100vh", width:"100vw"}}/>
         }
 
         {playedCards.length >= 10 &&
